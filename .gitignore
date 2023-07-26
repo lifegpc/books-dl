@@ -1,0 +1,7 @@
+cookie.txt
+config.json
+__pycache__
+downloads
+*.pyd
+build/
+*.c
