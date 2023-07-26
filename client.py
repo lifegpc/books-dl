@@ -51,7 +51,8 @@ class BookClient:
         title = root_file.title().text
         print(root_file.items())
         with ZipFile(f"downloads/{title}.epub", "w", ZIP_DEFLATED) as z:
-            z.writestr("META-INF/container.xml", cbin, ZIP_STORED)
+            z.writestr("mimetype", "application/epub+zip", ZIP_STORED)
+            z.writestr("META-INF/container.xml", cbin)
             z.writestr(root_file_path, root_file_bin)
             for p in root_file.items():
                 print(p)
