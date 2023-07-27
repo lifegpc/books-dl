@@ -1,6 +1,6 @@
 from requests import Session
 from http.cookiejar import MozillaCookieJar
-from utils.decode import getDecode, xorDecoder
+from utils.decode import getDecode, xorDecoder, imgKeyCode
 from epub import Container, Package
 from json import load as loadjson
 from posixpath import dirname
@@ -38,6 +38,7 @@ class BookClient:
         self.client = client
         self.download_link = data["download_link"]
         self.download_token = data["download_token"]
+        self.checksum = imgKeyCode()
 
     def download(self):
         cbin = self.fetch_container()
@@ -61,7 +62,14 @@ class BookClient:
 
     def fetch(self, path):
         url = f"{self.download_link}{path}"
-        re = self.client._ses.get(url)
+        p = {"DownloadToken": self.download_token}
+        skip_decode = False
+        if url.endswith(".css"):
+            skip_decode = True
+            p["checksum"] = self.checksum
+        re = self.client._ses.get(url, params=p)
+        if skip_decode:
+            return re.content
         return xorDecoder(re.content, getDecode(url, self.download_token))
 
     def fetch_container(self):
