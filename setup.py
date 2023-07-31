@@ -44,7 +44,7 @@ else:
     }
 
 setup(
-    name="books-dl",
+    name="books-com-tw-dl",
     version=version,
     url="https://github.com/lifegpc/books-dl",
     author="lifegpc",

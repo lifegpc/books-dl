@@ -1,5 +1,7 @@
 from libc.stdlib cimport malloc, free
-from base cimport PyBytes_FromStringAndSize
+
+cdef extern from "Python.h":
+    object PyBytes_FromStringAndSize(const char *v, Py_ssize_t len)
 
 def xorDecoder(data: bytes, decode: bytes):
     cdef int xorLoc = 0
