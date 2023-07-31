@@ -1,6 +1,6 @@
 from urllib.parse import unquote_plus
 from hashlib import md5 as _md5, sha256 as _sha256
-from ._decode import xorDecoder
+from books_dl.utils._decode import xorDecoder
 from random import randint
 
 

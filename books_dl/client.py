@@ -1,7 +1,7 @@
 from requests import Session
 from http.cookiejar import MozillaCookieJar
-from utils.decode import getDecode, xorDecoder, imgKeyCode
-from epub import Container, Package
+from books_dl.utils.decode import getDecode, xorDecoder, imgKeyCode
+from books_dl.epub import Container, Package
 from json import load as loadjson
 from posixpath import dirname
 from zipfile import ZipFile, ZIP_DEFLATED, ZIP_STORED
