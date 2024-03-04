@@ -61,7 +61,7 @@ jobs:
     - name: Copy dists
       run: |
         mkdir -p dist
-        cp -rv dist-*/ dist/
+        cp -rv dist-*/*.whl dist/
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
