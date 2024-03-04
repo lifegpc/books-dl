@@ -72,7 +72,7 @@ jobs:
         python -m pip install -r requirements.txt
         python -m pip install -r dev-requirements.txt
     - name: Build package
-      run: python setup.py bdist
+      run: python setup.py sdist
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
