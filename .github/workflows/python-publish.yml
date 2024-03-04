@@ -36,6 +36,8 @@ jobs:
         python -m pip install cibuildwheel==2.16.5
     - name: Build wheels
       run: python -m cibuildwheel --output-dir wheelhouse
+      env:
+        CIBW_PROJECT_REQUIRES_PYTHON: ">=3.7"
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
