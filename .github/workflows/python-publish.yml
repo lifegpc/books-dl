@@ -56,6 +56,7 @@ jobs:
       uses: actions/download-artifact@v4
     - name: Copy dists
       run: |
+        mkdir -p dist
         cp -rv dist-*/ dist/
     - name: Set up Python
       uses: actions/setup-python@v3
