@@ -13,6 +13,6 @@ class Package:
     def items(self):
         manifest = self.dom.find("{http://www.idpf.org/2007/opf}manifest")
         items = []
-        for e in manifest.getchildren():
+        for e in list(manifest):
             items.append(e.get("href"))
         return items
