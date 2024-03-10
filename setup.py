@@ -1,5 +1,9 @@
 import sys
-from version import version, dversion
+try:
+    from version import version, dversion
+except ImportError:
+    version = "1.1.2"
+    dversion = version
 from setuptools import Extension, find_packages
 try:
     from Cython.Build import cythonize
